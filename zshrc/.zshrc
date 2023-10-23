@@ -126,6 +126,8 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias kcontinue="lsof -i :65432 | grep \"(LISTEN)\" | awk '{print $2}' | xargs kill -9"
 
+bindkey -s ^f "~/.dotfiles/tmux-nav\n"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
