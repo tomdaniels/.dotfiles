@@ -1,0 +1,4 @@
+#!/bin/bash
+
+stow zshrc -t ~/
+stow tmux -t ~/
