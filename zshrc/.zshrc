@@ -44,7 +44,7 @@ fi
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 	SPACESHIP_PROMPT_ASYNC=false
-	alias f="~/.dotfiles/tmux-nav"
+	alias t="~/.dotfiles/scripts/tmux/tmux-nav"
 ##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
@@ -134,7 +134,7 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias kcontinue="lsof -i :65432 | grep \"(LISTEN)\" | awk '{print $2}' | xargs kill -9"
 
-bindkey -s ^f "~/.dotfiles/tmux-nav\n"
+bindkey -s ^f "~/.dotfiles/scripts/tmux/tmux-nav\n"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
