@@ -2,3 +2,4 @@
 
 stow zshrc -t ~/
 stow tmux -t ~/
+stow nvim 
