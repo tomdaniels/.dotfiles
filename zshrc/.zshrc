@@ -40,6 +40,14 @@ else
 	cowsay_with "turtle"
 fi
 
+# Disable spaceship prompt for warp.
+if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
+##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+	SPACESHIP_PROMPT_ASYNC=false
+	alias f="~/.dotfiles/tmux-nav"
+##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+fi
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
