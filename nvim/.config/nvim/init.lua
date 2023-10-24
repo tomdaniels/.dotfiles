@@ -52,6 +52,9 @@ vim.o.smartindent = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- Define a key mapping in init.lua
+vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true })
+
 -- Auto compile Packer plugins
 vim.cmd([[
   augroup packer_user_config
