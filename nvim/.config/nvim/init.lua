@@ -54,6 +54,7 @@ vim.o.relativenumber = true
 
 -- Define a key mapping in init.lua
 vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader><CR>',':so ~/.config/nvim/init.lua<CR>', { noremap = true })
 
 -- Auto compile Packer plugins
 vim.cmd([[
