@@ -42,10 +42,7 @@ fi
 
 # Disable spaceship prompt for warp.
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
-##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 	SPACESHIP_PROMPT_ASYNC=false
-	alias t="~/.dotfiles/scripts/tmux/tmux-nav"
-##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
 fi
 
 # Uncomment the following line to use case-sensitive completion.
@@ -133,6 +130,11 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias kcontinue="lsof -i :65432 | grep \"(LISTEN)\" | awk '{print $2}' | xargs kill -9"
+
+
+alias tmf="~/.dotfiles/scripts/tmux/tmux-nav" # find
+alias tmk="tmux kill-session -t $1"           # kill
+alias tms="tmux switch-client -t $1"          # switch
 
 bindkey -s ^f "~/.dotfiles/scripts/tmux/tmux-nav\n"
 
