@@ -131,6 +131,11 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias kcontinue="lsof -i :65432 | grep \"(LISTEN)\" | awk '{print $2}' | xargs kill -9"
 
+# remap vim && vi
+alias vim="nvim"
+alias vi="nvim"
+
+alias vimcfg="vim ~/.dotfiles/nvim/.config/nvim/init.lua"
 
 alias tmf="~/.dotfiles/scripts/tmux/tmux-nav" # find
 alias tmk="tmux kill-session -t $1"           # kill
