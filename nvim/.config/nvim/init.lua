@@ -21,7 +21,6 @@ Kickstart.nvim is a template for your own configuration.
   And then you can explore or search through `:help lua-guide`
   - https://neovim.io/doc/user/lua-guide.html
 
-
 Kickstart Guide:
 
 I have left several `:help X` comments throughout the init.lua
@@ -52,11 +51,10 @@ vim.o.smartindent = true
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.cmd 'set clipboard=unnamedplus'
-
 -- Define a key mapping in init.lua
 vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>pe', ':Explore<CR>', { noremap = true })
 
 -- Auto compile Packer plugins
 vim.cmd [[
@@ -96,6 +94,7 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -155,7 +154,7 @@ require('lazy').setup({
   },
 
   { 'wakatime/vim-wakatime' },
-  { 'ellisonleao/gruvbox.nvim', priority = 1000, config = true, opts = ... },
+  { 'sainnhe/gruvbox-material' }, -- best gruvbox variat
 
   {
     -- Set lualine as statusline
@@ -185,6 +184,9 @@ require('lazy').setup({
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
+      --
+      -- req'd for fuzzy finding IN files
+      'BurntSushi/ripgrep',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         -- NOTE: If you are having trouble with this installation,
@@ -205,19 +207,6 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-       -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
-      settings = {
-        complete_function_calls = false,
-         include_completions_with_insert_text = true,
-      },
-    },
-  },
-
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -238,7 +227,7 @@ require('lazy').setup({
 
 -- colour scheme
 vim.o.background = 'dark'
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme gruvbox-material]]
 
 -- Set highlight on search
 vim.o.hlsearch = false
