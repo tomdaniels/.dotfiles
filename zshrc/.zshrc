@@ -19,26 +19,7 @@ ZSH_THEME="robbyrussell"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# get user info
-greeting=$(echo G\'day, $USER!)
-
-#generate random number
-num=$(od -An -N1 -i /dev/random)
-
-cowsay_with() {
-	cowsay -f $1 $greeting | lolcat;
-}
-
-# somewhat randomize the animal selection
-if [[ num -gt 160 ]]
-then
-	cowsay_with "dragon"
-elif [[ num -gt 60 ]]
-then
-	cowsay_with "stegosaurus"
-else
-	cowsay_with "turtle"
-fi
+~/.dotfiles/scripts/welcome.sh
 
 # Disable spaceship prompt for warp.
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
