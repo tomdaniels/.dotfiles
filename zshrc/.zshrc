@@ -31,13 +31,13 @@ alias kcontinue="lsof -i :65432 | grep \"(LISTEN)\" | awk '{print $2}' | xargs k
 # remap vim && vi
 alias vim="nvim"
 alias vi="nvim"
-alias vimcfg="vim ~/.dotfiles/nvim/.config/nvim/init.lua"
+alias vimcfg="vim $HOME/.dotfiles/nvim/.config/nvim/init.lua"
 
-alias tmf="~/.dotfiles/scripts/tmux/tmux-nav" # find
+alias tmf="$HOME/.dotfiles/scripts/tmux/tmux-nav" # find
 alias tmk="tmux kill-session -t $1"           # kill
 alias tms="tmux switch-client -t $1"          # switch
 
-bindkey -s ^f "~/.dotfiles/scripts/tmux/tmux-nav\n"
+bindkey -s ^f "$HOME/.dotfiles/scripts/tmux/tmux-nav\n"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
