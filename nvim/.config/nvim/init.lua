@@ -59,6 +59,7 @@ vim.api.nvim_set_keymap('n', '<leader>pe', ':Explore<CR>', { noremap = true })
 -- need a better formatting solution...
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fp', ':!yarn format<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x', { noremap = true })
 
 -- Auto compile Packer plugins
 vim.cmd [[
