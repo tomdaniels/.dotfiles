@@ -57,9 +57,11 @@ vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', 
 vim.api.nvim_set_keymap('n', '<leader>pe', ':Explore<CR>', { noremap = true })
 
 -- need a better formatting solution...
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fp', ':!yarn format<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, desc = "[F]ile [F]ormat" })
+vim.api.nvim_set_keymap('n', '<leader>fp', ':!yarn format<CR>', { noremap = true, desc = "[F]ile [P]rettier (yarn format)" })
+vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x', { noremap = true, desc = "[F]ile [S]wap" })
+vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true, desc = "[B]uffer [N]ext" })
+vim.api.nvim_set_keymap('n', '<leader>bp', ':bp<CR>', { noremap = true, desc = "[B]uffer [P]revious" })
 
 -- Auto compile Packer plugins
 vim.cmd [[
@@ -305,14 +307,14 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
+    winblend  = 10,
     previewer = false,
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp', })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
