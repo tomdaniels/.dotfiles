@@ -10,5 +10,4 @@ stow \
 tig \
 tmux \
 tree \
-tree-sitter \
-font-fira-code
+tree-sitter 

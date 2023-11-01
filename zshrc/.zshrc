@@ -14,7 +14,7 @@ fi
 plugins=(git zsh-autosuggestions z dotenv)
 
 source $ZSH/oh-my-zsh.sh
-source /Users/td/.zsh/spaceship/spaceship.zsh
+source $HOME/.zsh/spaceship/spaceship.zsh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
