@@ -2,9 +2,10 @@
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    path_display={"smart"},
     layout_config = {
       prompt_position = "top",
-      preview_width = 0.65,
+      preview_width = 0.60,
     },
 
     mappings = {
