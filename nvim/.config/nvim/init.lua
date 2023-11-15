@@ -56,9 +56,13 @@ vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pe', ':Explore<CR>', { noremap = true })
 
--- need a better formatting solution...
+-- formatting
+vim.cmd [[
+  command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+]]
+
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, desc = "[F]ile [F]ormat" })
-vim.api.nvim_set_keymap('n', '<leader>fp', ':!yarn format<CR>', { noremap = true, desc = "[F]ile [P]rettier (yarn format)" })
+vim.api.nvim_set_keymap('n', '<leader>fp', ':Prettier<CR>', { noremap = true, desc = "[F]ile [P]rettier" })
 vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x', { noremap = true, desc = "[F]ile [S]wap" })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true, desc = "[B]uffer [N]ext" })
 vim.api.nvim_set_keymap('n', '<leader>bp', ':bp<CR>', { noremap = true, desc = "[B]uffer [P]revious" })

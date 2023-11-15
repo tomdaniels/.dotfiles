@@ -5,6 +5,8 @@ return {
   { 'mbbill/undotree' },
   { 'theprimeagen/harpoon' },
   { 'wakatime/vim-wakatime' },
+  { 'neovim/nvim-lspconfig' },
+  { 'neoclide/coc.nvim', branch = 'release'},
 }
 
 
