@@ -68,7 +68,7 @@ vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true, desc = "
 vim.api.nvim_set_keymap('n', '<leader>bp', ':bp<CR>', { noremap = true, desc = "[B]uffer [P]revious" })
 
 -- float the diagnostics window
-vim.api.nvim_set_keymap('n', '<leader>df', ':lua vim.diagnostic.open_float()<CR>', {
+vim.api.nvim_set_keymap('n', '<leader>df', ':lua vim.diagnostic.open_float { border = "rounded" } <CR>', {
   noremap = true, desc = "[D]iagnostics [F]loat"
 })
 
