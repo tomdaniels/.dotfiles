@@ -52,9 +52,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Define a key mapping in init.lua
-vim.api.nvim_set_keymap('n', '<leader>pv', ':Vex<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pe', ':Explore<CR>', { noremap = true })
 
 -- formatting
 vim.cmd [[
