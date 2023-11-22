@@ -10,9 +10,10 @@ return {
   { 'nvim-tree/nvim-tree.lua' },
   {
     "jose-elias-alvarez/buftabline.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"}, -- optional!
+    requires = {"kyazdani42/nvim-web-devicons"},
     config = function() require("buftabline").setup {} end
-  }
+  },
+  { "startup-nvim/startup.nvim" },
 }
 
 
