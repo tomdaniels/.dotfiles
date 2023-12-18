@@ -1,6 +1,6 @@
 #!/bin/bash
 
-message="Hello, $USER!"
+message="Hello, $USER."
 animals=("elephant2" "catfence" "-r") 
 random_animal="${animals[RANDOM % ${#animals[@]}]}"
 

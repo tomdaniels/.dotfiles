@@ -4,7 +4,7 @@ require"startup".create_mappings({
 require("startup").setup({
   theme = "startify",
   options = {
-    mapping_keys = true, -- display mapping (e.g. <leader>ff)
+    mapping_keys = true,
 
     cursor_column = 0.5,
     disable_statuslines = true,
@@ -17,5 +17,5 @@ require("startup").setup({
     open_section = "<TAB>",
     open_help = "?",
   }
-}) 
+})
 

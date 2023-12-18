@@ -52,16 +52,11 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- Define a key mapping in init.lua
+vim.api.nvim_set_keymap('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
+vim.api.nvim_set_keymap('v', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true })
 
--- formatting
-vim.cmd [[
-  command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-]]
-
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Format<CR>', { noremap = true, desc = "[F]ile [F]ormat" })
-vim.api.nvim_set_keymap('n', '<leader>fp', ':Prettier<CR>', { noremap = true, desc = "[F]ile [P]rettier" })
-vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x', { noremap = true, desc = "[F]ile [S]wap" })
+vim.api.nvim_set_keymap('n', '<leader>fs', '<C-w>x',  { noremap = true, desc = "[F]ile [S]wap" })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':bn<CR>', { noremap = true, desc = "[B]uffer [N]ext" })
 vim.api.nvim_set_keymap('n', '<leader>bp', ':bp<CR>', { noremap = true, desc = "[B]uffer [P]revious" })
 
@@ -350,11 +345,11 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
+  -- clangd = {},
   rust_analyzer = {},
   tsserver = {},
 
@@ -399,6 +394,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
 cmp.setup {
+  enabled = true,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)

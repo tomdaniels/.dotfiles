@@ -84,5 +84,6 @@ require("nvim-tree").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>pe", ":NvimTreeToggle<CR>", { desc = "[P]roject [E]xplore" })
+vim.keymap.set("n", "<leader>te", ":NvimTreeToggle<CR>", { desc = "[T]ree [E]xplore" })
+vim.keymap.set("n", "<leader>tf", ":NvimTreeFocus<CR>", { desc = "[T]ree [F]ocus" })
 vim.keymap.set("n", "<C-f>", ":NvimTreeToggle<CR>") -- shortcut (files)

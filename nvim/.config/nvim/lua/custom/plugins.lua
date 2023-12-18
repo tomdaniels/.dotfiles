@@ -14,6 +14,7 @@ return {
     config = function() require("buftabline").setup {} end
   },
   { "startup-nvim/startup.nvim" },
+  { "norcalli/nvim-colorizer.lua" }
 }
 
 
