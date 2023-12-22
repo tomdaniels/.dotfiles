@@ -18,13 +18,13 @@ require("nvim-tree").setup({
   },
   actions = {
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = true,
     },
   },
 
   disable_netrw = true,
-  hijack_netrw = true,
+  hijack_netrw = false,
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
   sync_root_with_cwd = true,

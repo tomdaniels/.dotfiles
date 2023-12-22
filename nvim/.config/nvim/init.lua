@@ -51,6 +51,8 @@ vim.o.smartindent = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+vim.o.cursorcolumn = true
+
 -- Define a key mapping in init.lua
 vim.api.nvim_set_keymap('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
 vim.api.nvim_set_keymap('v', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
