@@ -2,4 +2,4 @@
 
 stow zshrc
 stow tmux
-stow nvim 
+stow config -t ~/.config 
