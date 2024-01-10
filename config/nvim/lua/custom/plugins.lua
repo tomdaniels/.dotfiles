@@ -12,6 +12,8 @@ return {
   { "norcalli/nvim-colorizer.lua" },
   { "windwp/nvim-autopairs", event = "InsertEnter", opts = {}},
   { "terrortylor/nvim-comment" },
+  { "MunifTanjim/nui.nvim" },
+  { "rcarriga/nvim-notify" },
+  { "folke/noice.nvim", event = "VeryLazy", opts = {} },
 }
-
 
