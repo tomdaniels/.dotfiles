@@ -1,6 +1,6 @@
 if status is-interactive
-	fish_config theme choose Old\ School
-	fish_config prompt choose terlar
+	fish_config theme choose Base16\ Eighties
+	fish_config prompt choose Astronaut 
 
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
 
