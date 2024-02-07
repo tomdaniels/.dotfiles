@@ -15,5 +15,6 @@ return {
   { "MunifTanjim/nui.nvim" },
   { "rcarriga/nvim-notify" },
   { "folke/noice.nvim", event = "VeryLazy", opts = {} },
+  { "arthurxavierx/vim-caser" },
 }
 
