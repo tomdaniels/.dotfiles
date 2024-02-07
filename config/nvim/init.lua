@@ -52,6 +52,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 vim.o.cursorcolumn = true
+vim.o.wrap = false
 
 -- Define a key mapping in init.lua
 vim.api.nvim_set_keymap('n', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
