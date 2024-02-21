@@ -22,9 +22,9 @@ alias vimcfg="vim $HOME/.dotfiles/nvim/.config/nvim/init.lua"
 
 # tmux helpers
 alias tmf="$HOME/.dotfiles/scripts/tmux/tmux-nav" # find
-alias tmk="tmux kill-session -t $1"           # kill
-alias tms="tmux switch-client -t $1"          # switch
-bindkey -s ^f "$HOME/.dotfiles/scripts/tmux/tmux-nav\n"
+alias tmk="tmux kill-session -t $1"               # kill
+alias tms="tmux switch-client -t $1"              # switch
+bindkey -s '^f' '$HOME/.dotfiles/scripts/tmux/tmux-nav\n'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
