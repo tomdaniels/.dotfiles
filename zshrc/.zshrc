@@ -26,7 +26,7 @@ alias vimcfg="vim $HOME/.dotfiles/nvim/.config/nvim/init.lua"
 alias tmf="$HOME/.dotfiles/scripts/tmux/tmux-nav" # find
 alias tmk="tmux kill-session -t $1"               # kill
 alias tms="tmux switch-client -t $1"              # switch
-bindkey -s '^f' '$HOME/.dotfiles/scripts/tmux/tmux-nav\n'
+bindkey -s '^f' 'tmf \n'
 
 # general alias
 alias sb="v ~/Documents/Obsidian\ Vault/second_brain/qwik.md"
