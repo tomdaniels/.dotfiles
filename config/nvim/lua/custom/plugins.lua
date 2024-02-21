@@ -1,4 +1,5 @@
 return {
+  { 'rhysd/git-messenger.vim' },
   { "sainnhe/gruvbox-material" },
   { "f-person/git-blame.nvim" },
   { "nvim-treesitter/playground" },
@@ -14,7 +15,10 @@ return {
   { "terrortylor/nvim-comment" },
   { "MunifTanjim/nui.nvim" },
   { "rcarriga/nvim-notify" },
-  { "folke/noice.nvim", event = "VeryLazy", opts = {} },
+  {
+    "folke/noice.nvim", event = "VeryLazy", opts = {
+      messages = { enabled = false } }
+  },
   { "arthurxavierx/vim-caser" },
 }
 
