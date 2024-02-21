@@ -1,6 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=/opt/homebrew/bin:$PATH
-$HOME/.dotfiles/scripts/welcome.sh
 
 ZSH_THEME="robbyrussell"
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
@@ -11,6 +10,8 @@ plugins=(git zsh-autosuggestions z dotenv)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/spaceship/spaceship.zsh
+SPACESHIP_EXEC_TIME_SHOW=false
+SPACESHIP_NODE_SHOW=false
 
 export EDITOR='nvim'
 
@@ -36,6 +37,9 @@ export PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+$HOME/.dotfiles/scripts/welcome.sh
+
 #
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
