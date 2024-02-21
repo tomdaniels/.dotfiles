@@ -1,0 +1,17 @@
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
+]
+
+[font]
+size = 25
+
+[window]
+decorations = "none"
+
+[window.dimensions]
+columns = 90
+lines = 25
+
+[window.padding]
+x = 5
+y = 0
