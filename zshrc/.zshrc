@@ -16,15 +16,20 @@ SPACESHIP_NODE_SHOW=false
 export EDITOR='nvim'
 
 # remap vim && vi
+alias v="nvim"
 alias vim="nvim"
 alias vi="nvim"
 alias vimcfg="vim $HOME/.dotfiles/nvim/.config/nvim/init.lua"
+
 
 # tmux helpers
 alias tmf="$HOME/.dotfiles/scripts/tmux/tmux-nav" # find
 alias tmk="tmux kill-session -t $1"               # kill
 alias tms="tmux switch-client -t $1"              # switch
 bindkey -s '^f' '$HOME/.dotfiles/scripts/tmux/tmux-nav\n'
+
+# general alias
+alias sb="v ~/Documents/Obsidian\ Vault/second_brain/qwik.md"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
