@@ -28,9 +28,6 @@ alias tmk="tmux kill-session -t $1"               # kill
 alias tms="tmux switch-client -t $1"              # switch
 bindkey -s '^f' 'tmf \n'
 
-# general alias
-alias sb="v ~/Documents/Obsidian\ Vault/second_brain/qwik.md"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
