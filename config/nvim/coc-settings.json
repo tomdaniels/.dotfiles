@@ -11,7 +11,9 @@
     "tsx",
     "css",
     "scss",
-    "json"
+    "json",
+    "svg",
+    "lua"
   ],
 
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js"

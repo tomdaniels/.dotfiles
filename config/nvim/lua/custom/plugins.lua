@@ -1,6 +1,17 @@
 return {
-  { 'rhysd/git-messenger.vim' },
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+  },
+  {
+    "folke/noice.nvim", event = "VeryLazy", opts = {
+      messages = { enabled = false } }
+  },
   { "sainnhe/gruvbox-material" },
+  { 'nvim-lualine/lualine.nvim', opts = { } },
+  { 'rhysd/git-messenger.vim' },
   { "f-person/git-blame.nvim" },
   { "nvim-treesitter/playground" },
   { "mbbill/undotree" },
@@ -15,10 +26,6 @@ return {
   { "terrortylor/nvim-comment" },
   { "MunifTanjim/nui.nvim" },
   { "rcarriga/nvim-notify" },
-  {
-    "folke/noice.nvim", event = "VeryLazy", opts = {
-      messages = { enabled = false } }
-  },
   { "arthurxavierx/vim-caser" },
 }
 
