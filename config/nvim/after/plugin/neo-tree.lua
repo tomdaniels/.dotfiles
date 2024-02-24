@@ -2,10 +2,6 @@ require('neo-tree').setup({
   window = {
     position = "right",
     width = 55,
-
-    mappins = {
-      ['\b'] = "close_node",
-    },
   },
   filesystem = {
     follow_current_file = {
