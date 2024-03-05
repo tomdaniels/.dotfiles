@@ -1,7 +1,6 @@
 require('neo-tree').setup({
   window = {
-    position = "right",
-    width = 55,
+    position = "current",
   },
   filesystem = {
     follow_current_file = {
@@ -10,4 +9,4 @@ require('neo-tree').setup({
   }
 })
 
-vim.keymap.set("n", "<C-f>", ":Neotree toggle<CR>")
+vim.keymap.set("n", "<leader>pe", ":Neotree toggle<CR>", { desc = "[P]roject [E]xplore" })
