@@ -6,7 +6,7 @@ if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
 	SPACESHIP_PROMPT_ASYNC=false
 fi
 
-plugins=(git zsh-autosuggestions z dotenv)
+plugins=(git zsh-autosuggestions z dotenv zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/spaceship/spaceship.zsh
