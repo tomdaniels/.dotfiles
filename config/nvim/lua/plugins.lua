@@ -1,29 +1,5 @@
--- Auto compile Packer plugins
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
-  augroup end
-]]
-
--- https://github.com/folke/lazy.nvim
--- `:help lazy.nvim.txt` for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
-end
-vim.opt.rtp:prepend(lazypath)
-
-require('lazy').setup({
+local plugins = {
   { "prichrd/netrw.nvim" },
-  { "folke/noice.nvim", event = "VeryLazy" },
   { "sainnhe/gruvbox-material" },
   { 'nvim-lualine/lualine.nvim' },
   { 'rhysd/git-messenger.vim' },
@@ -49,9 +25,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -145,6 +118,31 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+}
 
-})
+-- [[ Configure Package Managers (Lazy & Packer)]]
+-- Auto compile Packer plugins
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
+  augroup end
+]]
+
+-- https://github.com/folke/lazy.nvim
+-- `:help lazy.nvim.txt` for more info
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
+end
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup(plugins)
 
