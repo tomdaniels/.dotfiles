@@ -1,4 +1,5 @@
 local plugins = {
+  { "Asheq/close-buffers.vim" },
   { "prichrd/netrw.nvim" },
   { "sainnhe/gruvbox-material" },
   { 'nvim-lualine/lualine.nvim' },
