@@ -1,3 +1,6 @@
+-- "current" working directory (a buffer relative pwd()) 
+vim.keymap.set('n', '<leader>wd', function () print(vim.fn.expand("%")) end)
+
 -- reload nvim
 vim.keymap.set('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 
