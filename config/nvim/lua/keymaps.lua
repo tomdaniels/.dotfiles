@@ -1,14 +1,13 @@
--- code actions
-vim.api.nvim_set_keymap('v', '<leader>.', ':lua vim.lsp.buf.code_action()<CR>', { noremap = true, desc = "Code Actions" })
-vim.api.nvim_set_keymap('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>', { noremap = true })
+-- reload nvim
+vim.keymap.set('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 
 -- folding code
-vim.api.nvim_set_keymap('n', 'z[', 'zf%', { noremap = true })
-vim.api.nvim_set_keymap('n', 'z]', 'zo', { noremap = true })
+vim.keymap.set('n', 'z[', 'zf%')
+vim.keymap.set('n', 'z]', 'zo')
 
 -- float the diagnostics window
-vim.api.nvim_set_keymap('n', '<leader>df', ':lua vim.diagnostic.open_float { border = "rounded" } <CR>', {
-  noremap = true, desc = "[D]iagnostics [F]loat"
+vim.keymap.set('n', '<leader>df', ':lua vim.diagnostic.open_float { border = "rounded" } <CR>', {
+  desc = "[D]iagnostics [F]loat"
 })
 
 -- cycle through buffers
