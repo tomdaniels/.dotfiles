@@ -5,11 +5,6 @@ vim.keymap.set('n', '<leader><CR>', ':so ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', 'z[', 'zf%')
 vim.keymap.set('n', 'z]', 'zo')
 
--- float the diagnostics window
-vim.keymap.set('n', '<leader>df', ':lua vim.diagnostic.open_float { border = "rounded" } <CR>', {
-  desc = "[D]iagnostics [F]loat"
-})
-
 -- cycle through buffers
 vim.keymap.set("n", "<tab>",     ":bn<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<S-tab>",   ":bp<CR>", { desc = "Previous Buffer" })
