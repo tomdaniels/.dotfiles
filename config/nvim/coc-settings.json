@@ -12,8 +12,7 @@
     "css",
     "scss",
     "json",
-    "svg",
-    "lua"
+    "svg"
   ],
 
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
