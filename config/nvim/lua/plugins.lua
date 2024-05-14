@@ -1,4 +1,5 @@
 require('lazy').setup({
+  { "stevearc/oil.nvim" },
   { "Asheq/close-buffers.vim" },
   { "prichrd/netrw.nvim" },
   { "sainnhe/gruvbox-material" },
