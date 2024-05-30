@@ -13,14 +13,15 @@ source $HOME/.zsh/spaceship/spaceship.zsh
 SPACESHIP_EXEC_TIME_SHOW=false
 SPACESHIP_NODE_SHOW=false
 
-export EDITOR='nvim'
+# vim in the shell
+bindkey -v
 
 # remap vim && vi
 alias v="nvim"
 alias vim="nvim"
 alias vi="nvim"
-alias vimcfg="vim $HOME/.dotfiles/nvim/.config/nvim/init.lua"
 
+export EDITOR='nvim'
 
 # tmux helpers
 alias tmf="$HOME/.dotfiles/scripts/tmux/tmux-nav" # find
