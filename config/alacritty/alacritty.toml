@@ -4,6 +4,21 @@ import = [
 
 [font]
 size = 25
+[font.normal]
+    family = "DroidSansMono Nerd Font"
+    style = "Regular"
+
+  [font.bold]
+    family = "DroidSansMono Nerd Font"
+    style = "Regular"
+
+  [font.italic]
+    family = "DroidSansMono Nerd Font"
+    style = "Regular"
+
+  [font.bold_italic]
+    family = "DroidSansMono Nerd Font"
+    style = "Regular"
 
 [window]
 decorations = "none"
