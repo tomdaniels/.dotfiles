@@ -1,6 +1,5 @@
 if status is-interactive
 	fish_config theme choose Base16\ Eighties
-	fish_config prompt choose Astronaut 
 
 	# bindings for both Normal and Insert mode
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
@@ -22,6 +21,7 @@ if status is-interactive
 	# cargo (rust)
 	set -gx PATH $HOME/.cargo/bin $PATH
 
+	starship init fish | source
 	$HOME/.dotfiles/scripts/welcome.sh
 end
 
