@@ -10,4 +10,5 @@ stow \
 tig \
 tmux \
 tree \
-tree-sitter 
+tree-sitter \
+starship

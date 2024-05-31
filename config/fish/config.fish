@@ -1,6 +1,6 @@
 if status is-interactive
 	fish_config theme choose Base16\ Eighties
-	fish_config prompt choose Terlar
+	starship init fish | source
 
 	# bindings for both Normal and Insert mode
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
