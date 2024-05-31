@@ -1,7 +1,8 @@
 if status is-interactive
 	fish_config theme choose Base16\ Eighties
 
-	# bindings for both Normal and Insert mode
+	bind \e 'tmux copy-mode'
+	# bindings for tmux nav, need both Normal and Insert mode
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
 	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
 
