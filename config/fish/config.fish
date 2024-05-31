@@ -6,13 +6,10 @@ if status is-interactive
 	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
 
 	alias v="nvim"
-	fish_vi_key_bindings
-
 	alias vim="nvim"
-	alias vimcfg="vim ~/.dotfiles/nvim/.config/nvim/init.lua"
-	alias tmn="tmux neww"
-
+	alias gv="v ~/.config/nvim/init.lua"
 	set -gx EDITOR nvim
+	fish_vi_key_bindings
 
 	# homebrew
 	set -gx PATH /opt/homebrew/bin $PATH
