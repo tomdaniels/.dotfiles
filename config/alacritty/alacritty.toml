@@ -3,7 +3,7 @@ import = [
 ]
 
 [font]
-size = 25
+size = 42
 [font.normal]
     family = "DroidSansMono Nerd Font"
     style = "Regular"
@@ -30,3 +30,4 @@ lines = 25
 [window.padding]
 x = 5
 y = 0
+
