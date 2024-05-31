@@ -1,7 +1,7 @@
 #!/bin/bash
 
 message="Hello, $USER."
-animals=("elephant2" "catfence" "-r") 
-random_animal="${animals[RANDOM % ${#animals[@]}]}"
+opts=("homer" "elephant2" "catfence" "-r") 
+opt="${opts[RANDOM % ${#opts[@]}]}"
 
-cowsay -f "$random_animal" "$message" | lolcat
+cowsay -f "$opt" "$message" | lolcat
