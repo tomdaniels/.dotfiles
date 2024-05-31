@@ -30,3 +30,9 @@ lines = 25
 [window.padding]
 x = 5
 y = 0
+
+[keyboard]
+bindings = [
+  { key = "Key6", mods = "Control", chars = "\u001e" }
+]
+
