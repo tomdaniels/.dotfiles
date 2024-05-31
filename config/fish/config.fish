@@ -2,7 +2,12 @@ if status is-interactive
 	fish_config theme choose Base16\ Eighties
 	fish_config prompt choose Astronaut 
 
+	# bindings for both Normal and Insert mode
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
+	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
+
+	alias v="nvim"
+	fish_vi_key_bindings
 
 	alias vim="nvim"
 	alias vimcfg="vim ~/.dotfiles/nvim/.config/nvim/init.lua"
