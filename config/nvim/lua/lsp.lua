@@ -55,7 +55,9 @@ local servers = {
 
   -- clangd = {},
   rust_analyzer = {},
-  tsserver = {},
+
+  -- disabled while using this https://github.com/pmizio/typescript-tools.nvim 
+  -- tsserver = {},
 
   lua_ls = {
     Lua = {

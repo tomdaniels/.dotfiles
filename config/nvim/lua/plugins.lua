@@ -1,4 +1,5 @@
 require('lazy').setup({
+  { "pmizio/typescript-tools.nvim" },
   { "stevearc/oil.nvim" },
   { "Asheq/close-buffers.vim" },
   { "prichrd/netrw.nvim" },
