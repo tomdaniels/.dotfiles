@@ -21,18 +21,18 @@ bindings = [
 [font]
 size = 25
   [font.normal]
-    family = "DroidSansMono Nerd Font"
+    family = "FiraCode Nerd Font"
     style = "Regular"
 
   [font.bold]
-    family = "DroidSansMono Nerd Font"
+    family = "FiraCode Nerd Font"
     style = "Bold"
 
   [font.italic]
-    family = "DroidSansMono Nerd Font"
+    family = "FiraCode Nerd Font"
     style = "Italic"
 
   [font.bold_italic]
-    family = "DroidSansMono Nerd Font"
+    family = "FiraCode Nerd Font"
     style = "Bold Italic"
 
