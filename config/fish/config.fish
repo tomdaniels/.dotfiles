@@ -8,7 +8,7 @@ if status is-interactive
 
 	alias v="nvim"
 	alias vim="nvim"
-	alias gv="v ~/.config/nvim/init.lua"
+	alias vc="v ~/.config/nvim/init.lua"
 	set -gx EDITOR nvim
 	fish_vi_key_bindings
 
