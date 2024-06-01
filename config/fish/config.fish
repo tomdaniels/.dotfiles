@@ -19,16 +19,16 @@ if status is-interactive
 	# cargo (rust)
 	set -gx PATH $HOME/.cargo/bin $PATH
 
+	# Set Android Home
+	set -x ANDROID_HOME $HOME/Library/Android/sdk
+	
+	# Add emulator and platform-tools to the PATH
+	set -x PATH $PATH $ANDROID_HOME/emulator
+	set -x PATH $PATH $ANDROID_HOME/platform-tools
+
 	starship init fish | source
 	$HOME/.dotfiles/scripts/welcome.sh
 end
 
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
-
-# Set Android Home
-set -x ANDROID_HOME $HOME/Library/Android/sdk
-
-# Add emulator and platform-tools to the PATH
-set -x PATH $PATH $ANDROID_HOME/emulator
-set -x PATH $PATH $ANDROID_HOME/platform-tools
