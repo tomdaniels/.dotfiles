@@ -4,7 +4,7 @@ set update_key "ctrl-r"
 set delete_key "ctrl-x"
 
 function fzf_branch_select 
-    fzf --ansi --height 40% --border --prompt "Search branches: " --expect=$create_key,$read_key,$update_key,$delete_key
+    fzf --ansi --height 20% --border --prompt "Search branches: " --expect=$create_key,$read_key,$update_key,$delete_key
 end
 
 function gb --wraps="git branch"
@@ -69,7 +69,7 @@ function delete_selected_branch
     if test "$confirmation" = "y"
         git branch -D $branch
     else
-        gb # recursuive call to return
+        gb # recurse (a poor mans return)
     end
 end
 
