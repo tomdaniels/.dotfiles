@@ -26,6 +26,9 @@ if status is-interactive
 	set -x PATH $PATH $ANDROID_HOME/platform-tools
 
 	starship init fish | source
+
+	source ~/.config/fish/functions/git/commands.fish
+
 	$HOME/.dotfiles/scripts/welcome.sh
 end
 
