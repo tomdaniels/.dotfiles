@@ -29,24 +29,12 @@ function gc --wraps='git commit'
         return 1
     end
     
-    set ticket (infer_ticket $branch_name)
+    set ticket (infer_branch_ticket $branch_name)
     if test -z "$ticket"
         git commit -m "$branch_type: $commit_message"
         return 0
     end
     git commit -m "$branch_type($ticket): $commit_message"
-end
-
-function infer_branch_type
-    set branch_name $argv[1]
-    set inferred_branch_type (string split '/' $branch_name)[1]
-    echo $inferred_branch_type
-end
-
-function infer_ticket
-    set branch_name $argv[1]
-    set ticket (string match -r "(?:PKB)-[^-]*" $branch_name)
-    echo $ticket
 end
 
 function throw
