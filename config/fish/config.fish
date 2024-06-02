@@ -7,9 +7,14 @@ if status is-interactive
 
 	alias v="nvim"
 	alias vim="nvim"
-	alias vc="v ~/.config/nvim/init.lua"
 	set -gx EDITOR nvim
 	fish_vi_key_bindings
+
+	# config shortcuts
+	alias vc="v ~/.config/nvim/init.lua"
+	alias fc="v ~/.config/fish/config.fish"
+	alias ac="v ~/.config/alacritty/alacritty.toml"
+	alias tc="v ~/.tmux.conf"
 
 	# trial
 	# bind \e 'tmux copy-mode' 
