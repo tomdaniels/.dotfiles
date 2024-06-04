@@ -12,10 +12,6 @@ if status is-interactive
 	set -gx EDITOR nvim
 	fish_vi_key_bindings
 
-	# homebrew
-	set -gx PATH /opt/homebrew/bin $PATH
-	eval (brew shellenv)
-
 	# cargo (rust)
 	set -gx PATH $HOME/.cargo/bin $PATH
 
