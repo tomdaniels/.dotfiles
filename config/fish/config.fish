@@ -1,10 +1,6 @@
 if status is-interactive
 	fish_config theme choose Base16\ Eighties
 
-	# bindings for tmux nav, need both Normal and Insert mode
-	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
-	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
-
 	alias v="nvim"
 	alias vim="nvim"
 	set -gx EDITOR nvim
@@ -37,6 +33,15 @@ if status is-interactive
 	starship init fish | source
 
 	source ~/.config/fish/functions/git/commands.fish
+
+	# git branch workflow - ctrl b
+	bind \cB gb
+	bind -M insert \cB gb
+
+	# fzf tmux session jumper - ctrl f
+	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
+	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
+
 
 	$HOME/.dotfiles/scripts/welcome.sh
 end
