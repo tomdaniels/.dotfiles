@@ -83,10 +83,11 @@ end
 function render_help
     if test "$argv" = "-h"
         echo " "
-        render_key " $read_key: "  "Checkout the selected branch"
-        render_key "$update_key: " "Rename the selected branch"
-        render_key "$delete_key: " "Delete the selected branch"
-        render_key "$create_key:"  " Create a new branch instead"
+        render_key " $read_key: "        "Checkout the selected branch"
+        render_key "$update_key: "       "Rename the selected branch"
+        render_key "$delete_key: "       "Delete the selected branch"
+        render_key "$create_key:"        " Create a new branch instead"
+        render_key " $multi_select_key:" " Toggle branch for mutli select"
         echo " "
     end
 end
