@@ -24,10 +24,10 @@ function gb --wraps="git branch"
             git checkout $branches[1]
 
         case $update_key
-            rename_selected_branch $branches
+            rename_selected $branches
 
         case $delete_key
-            delete_selected_branch $branches
+            delete_selected $branches
 
         case '*'
             echo "No valid option selected."
@@ -43,7 +43,7 @@ function create_new_branch
     end
 end
 
-function rename_selected_branch
+function rename_selected
     for branch in $argv
 
         set -l ticket           (infer_branch_ticket $branch)
@@ -65,7 +65,7 @@ function rename_selected_branch
 end
 
 
-function delete_selected_branch
+function delete_selected
     for branch in $argv
         read -P "Are you sure you want to delete the branch '$branch'? (y/N): " confirmation
         if test "$confirmation" = "y"
