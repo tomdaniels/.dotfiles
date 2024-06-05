@@ -21,13 +21,12 @@ function gb --wraps="git branch"
             create_new_branch
 
         case $read_key
-            git checkout $branches
+            git checkout $branches[1]
 
         case $update_key
             rename_selected_branch $branches
 
         case $delete_key
-            echo "$branches"
             delete_selected_branch $branches
 
         case '*'
@@ -45,22 +44,23 @@ function create_new_branch
 end
 
 function rename_selected_branch
-    set -l branch $argv[1]
+    for branch in $argv
 
-    set -l ticket           (infer_branch_ticket $branch)
-    set -l branch_type      (infer_branch_type $branch)
-    set -l branch_prefill   (echo "$branch_type/$ticket")
-    echo (set_color yellow) "TODO: prefill input with inferred branch info: $branch_prefill"
+        set -l ticket           (infer_branch_ticket $branch)
+        set -l branch_type      (infer_branch_type $branch)
+        set -l branch_prefill   (echo "$branch_type/$ticket")
+        echo (set_color yellow) "TODO: prefill input with inferred branch info: $branch_prefill"
 
-    read -P "Enter new branch name for '$branch': " new_branch
-    if test -z "$new_branch" -a -n "$default_rename"
-        set new_branch $default_rename
-    end
-    
-    if test -n "$new_branch"
-        git branch -m $branch $new_branch
-    else
-        echo "Branch renaming cancelled."
+        read -P "Enter new branch name for '$branch': " new_branch
+        if test -z "$new_branch" -a -n "$default_rename"
+            set new_branch $default_rename
+        end
+        
+        if test -n "$new_branch"
+            git branch -m $branch $new_branch
+        else
+            echo "Branch renaming cancelled."
+        end
     end
 end
 
