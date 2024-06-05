@@ -1,10 +1,12 @@
-set create_key "ctrl-n" 
-set read_key   "enter" 
-set update_key "ctrl-r" 
-set delete_key "ctrl-x"
+set create_key       "ctrl-n" 
+set read_key         "enter" 
+set update_key       "ctrl-r" 
+set delete_key       "ctrl-x"
+set multi_select_key "space"
 
 function fzf_branch_select 
-    fzf --ansi --height 20% --border --prompt "Search branches: " --expect=$create_key,$read_key,$update_key,$delete_key
+    fzf --ansi --height 20% --border --multi --bind "$multi_select_key:toggle" \
+    --prompt "Search branches: " --expect=$create_key,$read_key,$update_key,$delete_key
 end
 
 function gb --wraps="git branch"
@@ -12,20 +14,21 @@ function gb --wraps="git branch"
 
     set -l prompt_response (git branch --format="%(refname:short)" | fzf_branch_select)
     set key $prompt_response[1]
-    set branch $prompt_response[2]
+    set branches $prompt_response[2..-1]
 
     switch $key
         case $create_key
             create_new_branch
 
         case $read_key
-            git checkout $branch
+            git checkout $branches
 
         case $update_key
-            rename_selected_branch $branch
+            rename_selected_branch $branches
 
         case $delete_key
-            delete_selected_branch $branch
+            echo "$branches"
+            delete_selected_branch $branches
 
         case '*'
             echo "No valid option selected."
@@ -65,13 +68,13 @@ end
 
 
 function delete_selected_branch
-    set -l branch $argv[1]
-
-    read -P "Are you sure you want to delete the branch '$branch'? (y/N): " confirmation
-    if test "$confirmation" = "y"
-        git branch -D $branch
-    else
-        gb # recurse (a poor mans return)
+    for branch in $argv
+        read -P "Are you sure you want to delete the branch '$branch'? (y/N): " confirmation
+        if test "$confirmation" = "y"
+            git branch -D $branch
+        else
+            gb # recurse (a poor mans return)
+        end
     end
 end
 
