@@ -20,6 +20,9 @@ if status is-interactive
 	# bind \e 'tmux copy-mode' 
 	alias gs="git status -s"
 
+	# linux brew
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 	# cargo (rust)
 	set -gx PATH $HOME/.cargo/bin $PATH
 
