@@ -1,6 +1,4 @@
 if status is-interactive
-	fish_config theme choose Base16\ Eighties
-
 	alias v="nvim"
 	alias vim="nvim"
 	set -gx EDITOR nvim
