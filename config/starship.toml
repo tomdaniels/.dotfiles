@@ -18,3 +18,15 @@ disabled = true
 
 [lua]
 disabled = true
+
+[java]
+disabled = true
+
+[gradle]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[vagrant]
+disabled = true
