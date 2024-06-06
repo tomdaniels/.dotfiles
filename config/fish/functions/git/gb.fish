@@ -30,6 +30,8 @@ function gb --wraps="git branch"
         case '*'
             echo "No valid option selected."
     end
+
+    commandline -f repaint
 end
 
 function create_new_branch
