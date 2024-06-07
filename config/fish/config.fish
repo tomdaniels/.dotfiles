@@ -35,8 +35,8 @@ if status is-interactive
 	source ~/.config/fish/functions/git/commands.fish
 
 	# git branch workflow - ctrl b
-	bind \cB gb
-	bind -M insert \cB gb
+	bind \cz gb
+	bind -M insert \cz gb
 
 	# fzf tmux session jumper - ctrl f
 	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
