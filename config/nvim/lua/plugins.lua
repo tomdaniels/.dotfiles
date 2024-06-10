@@ -1,4 +1,5 @@
 require('lazy').setup({
+  { "windwp/nvim-ts-autotag" },
   { "pmizio/typescript-tools.nvim" },
   { "stevearc/oil.nvim" },
   { "Asheq/close-buffers.vim" },
