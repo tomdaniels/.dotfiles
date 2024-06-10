@@ -39,9 +39,8 @@ if status is-interactive
 	bind -M insert \cz gb
 
 	# fzf tmux session jumper - ctrl f
-	bind \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
-	bind -M insert \cf $HOME/.dotfiles/scripts/tmux/tmux-nav
-
+	bind \cf tmux-sessionizer
+	bind -M insert \cf tmux-sessionizer
 
 	$HOME/.dotfiles/scripts/welcome.sh
 end
