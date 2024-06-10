@@ -1,4 +1,4 @@
 function print_theme 
-   ~/.config/alacritty/themes/print_colors.sh 
+   ~/.config/alacritty/theme/print_colors.sh 
 end
 
