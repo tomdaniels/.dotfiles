@@ -99,6 +99,11 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+-- [[
+--    Disabling diagnostics for missing fields, this lsp was conifgured by kickstart project so I'm
+--    not going to mess with the required fields not supplied to avoid any unforseen problems.
+-- ]]
+---@diagnostic disable-next-line: missing-fields
 cmp.setup {
   enabled = true,
   snippet = {
