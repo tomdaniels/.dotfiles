@@ -45,13 +45,13 @@ require("typescript-tools").setup {
   },
 }
 
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'TS [T]ools: ' .. desc
-    end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = 'TS [T]ools: ' .. desc
   end
+
+  vim.keymap.set('n', keys, func, { desc = desc })
+end
 
 -- TSToolsOrganizeImports - sorts and removes unused imports
 -- TSToolsSortImports - sorts imports
