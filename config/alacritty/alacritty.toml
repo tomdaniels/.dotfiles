@@ -16,6 +16,7 @@ y = 0
 [keyboard]
 bindings = [
   { key = "Key6", mods = "Control", chars = "\u001e" }
+  { key =  "Space", mods = "Control", chars = "\x00" } 
 ]
 
 [font]
