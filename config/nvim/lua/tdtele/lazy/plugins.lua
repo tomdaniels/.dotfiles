@@ -1,0 +1,17 @@
+return {
+  "sainnhe/gruvbox-material",
+  "prichrd/netrw.nvim",
+  "windwp/nvim-ts-autotag",
+  "wakatime/vim-wakatime",
+  "MunifTanjim/nui.nvim",
+  "rcarriga/nvim-notify",
+  "arthurxavierx/vim-caser",
+  "nvim-tree/nvim-web-devicons",
+  "nvim-treesitter/playground",
+  "folke/which-key.nvim",
+  "numToStr/Comment.nvim",
+  "tpope/vim-sleuth",
+  "neoclide/coc.nvim",
+  "windwp/nvim-autopairs",
+  "lukas-reineke/indent-blankline.nvim",
+}

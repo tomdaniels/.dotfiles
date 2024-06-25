@@ -1,7 +1,3 @@
--- [[ Configure Package Managers ]]
-
--- https://github.com/folke/lazy.nvim
--- `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -15,11 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Auto compile Packer plugins
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerInstall
-  augroup end
-]]
-
+require("lazy").setup({
+    spec = "tdtele.lazy",
+    change_detection = { notify = false }
+})
