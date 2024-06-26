@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.netrw_altfile = 1
+
 vim.o.undofile = true
 
 vim.o.background = 'dark'
