@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', keys, func, { buffer = e.buf, desc = desc })
         end
 
-        nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+        nmap('gd', require("telescope.builtin").lsp_definitions, '[G]oto [D]efinition')
         nmap('gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
         nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
@@ -60,7 +60,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "tsserver"
+                -- "tsserver"
             },
             handlers = {
                 function(server_name)
