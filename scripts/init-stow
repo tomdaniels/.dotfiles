@@ -1,7 +1,0 @@
-#!/bin/bash
-
-stow zshrc
-stow tmux
-stow config -t ~/.config 
-# stow alacritty -t /mnt/c/Users/thoms/AppData/Roaming/alacritty
-cp ./config/alacritty/* /mnt/c/Users/thoms/AppData/Roaming/alacritty
