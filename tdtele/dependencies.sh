@@ -1,4 +1,5 @@
 fzf
+ripgrep
 stow
 nodejs
 tmux
