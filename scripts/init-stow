@@ -1,5 +1,0 @@
-#!/bin/bash
-
-stow zshrc
-stow tmux
-stow config -t ~/.config 
