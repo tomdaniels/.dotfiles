@@ -35,12 +35,15 @@ return {
   config = function()
     require('telescope').setup({
       defaults = {
+        initial_mode = "normal",
+        path_display = { "truncate" },
         layout_config = {
           horizontal = {
             preview_width = 0.6,
             results_width = 0.4,
           },
           width = 0.90,
+          preview_cutoff = 0,
         },
       },
       extensions = {
