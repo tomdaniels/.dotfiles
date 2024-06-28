@@ -11,7 +11,7 @@ if status is-interactive
 	alias tc="v ~/.tmux.conf"
 
 	# trial
-	# bind \e 'tmux copy-mode' 
+	# bind \e 'tmux copy-mode'
 	alias gs="git status -s"
 
 	# cargo (rust)
@@ -19,7 +19,7 @@ if status is-interactive
 
 	# Set Android Home
 	set -x ANDROID_HOME $HOME/Library/Android/sdk
-	
+
 	# Add emulator and platform-tools to the PATH
 	set -x PATH $PATH $ANDROID_HOME/emulator
 	set -x PATH $PATH $ANDROID_HOME/platform-tools
@@ -36,8 +36,10 @@ if status is-interactive
 	bind \cf tmux-sessionizer
 	bind -M insert \cf tmux-sessionizer
 
-	$HOME/.dotfiles/scripts/welcome.sh
+	$HOME/.dotfiles/tdtele/welcome.sh
 end
+
+set --universal nvm_default_version v22.3.0
 
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
