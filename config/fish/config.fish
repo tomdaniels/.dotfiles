@@ -47,5 +47,7 @@ end
 
 set --universal nvm_default_version v22.3.0
 
+fish_add_path -g --path /usr/local/go/bin
+
 # Generated for envman. Do not edit.
 test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"

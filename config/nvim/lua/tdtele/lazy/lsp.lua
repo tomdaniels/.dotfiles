@@ -60,12 +60,35 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
+                "gopls",
                 -- "tsserver"
             },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities
+                    })
+                end,
+
+                ["gopls"] = function ()
+                    vim.api.nvim_create_autocmd({"BufWritePre"}, {
+                        group = _G.tdtele,
+                        pattern = "*.go",
+                        callback = function ()
+                            vim.lsp.buf.format({ async = false })
+                        end
+                    })
+
+                    local lspconfig = require("lspconfig")
+                    lspconfig.gopls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            gopls = {
+                                analyses = { unusedparams = true },
+                                staticcheck = true,
+                                gofumpt = true,
+                            },
+                        },
                     })
                 end,
 
