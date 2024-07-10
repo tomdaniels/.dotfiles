@@ -100,7 +100,10 @@ return {
                             Lua = {
                                 runtime = { version = "Lua 5.1" },
                                 diagnostics = {
-                                    globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
+                                    globals = {
+                                        "bit", "vim", "it", "describe", "before_each", "after_each",
+                                        "s", "sn", "isn", "t", "i", "f", "c", "d", "r"
+                                    },
                                 }
                             }
                         }
@@ -110,6 +113,7 @@ return {
         })
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
 
         ---@diagnostic disable: missing-fields
         cmp.setup({
