@@ -36,7 +36,7 @@
   "ripgrep": { "branch": "master", "commit": "c9ebcbd8abe48c8336fb4826df7e9b6fb179de03" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "typescript-tools.nvim": { "branch": "master", "commit": "d306de46053c9d751e0949b1b16d059aa12e1ef5" },
+  "typescript-tools.nvim": { "branch": "master", "commit": "5da4d695d66f676eb6ea766b946e86f93baaafe7" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
   "vim-caser": { "branch": "master", "commit": "6bc9f41d170711c58e0157d882a5fe8c30f34bf6" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
