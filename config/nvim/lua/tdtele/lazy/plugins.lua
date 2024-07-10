@@ -15,5 +15,5 @@ return {
   "windwp/nvim-autopairs",
   "lukas-reineke/indent-blankline.nvim",
   "f-person/git-blame.nvim",
-  "tpope/vim-surround"
+  "tpope/vim-surround",
 }
