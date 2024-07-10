@@ -18,8 +18,9 @@ A symlink farm which serves as my home directory, managed by [GNU Stow](https://
 │   │   │   └── git
 │   │   │       └── utilities
 │   └── nvim
-│       ├── after
-│       │   └── plugin
+│       ├── tdtele
+│       │   └── lazy
+│       │   └── snippets
 │       └── lua
 └─── .tmux.conf
 ```
