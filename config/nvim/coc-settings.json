@@ -1,4 +1,5 @@
 {
+  "suggest.autoTrigger": "none",
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
@@ -13,7 +14,5 @@
     "scss",
     "json",
     "svg"
-  ],
-
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs"
+  ]
 }
