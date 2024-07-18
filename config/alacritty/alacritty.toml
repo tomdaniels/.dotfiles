@@ -15,12 +15,12 @@ y = 0
 
 [keyboard]
 bindings = [
-  { key = "Key6", mods = "Control", chars = "\u001e" }
-  { key =  "Space", mods = "Control", chars = "\x00" } 
+  { key = "Key6", mods = "Control", chars = "\u001e" },
+  { key =  "Space", mods = "Control", chars = "\u0000" }
 ]
 
 [font]
-size = 18
+size = 20
 
 [font.normal]
   family = "FiraCode Nerd Font"
