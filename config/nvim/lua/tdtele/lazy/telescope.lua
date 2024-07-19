@@ -4,6 +4,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'BurntSushi/ripgrep',
+    "nvim-telescope/telescope-ui-select.nvim",
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
@@ -56,5 +57,7 @@ return {
 
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
+
+    require("telescope").load_extension("ui-select")
   end,
 }
