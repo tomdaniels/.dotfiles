@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.api.nvim_buf_create_user_command(e.buf, 'Format', function(_)
             vim.lsp.buf.format()
         end, { desc = 'Format current buffer with LSP' })
+
+
+        local vtsls = require("vtsls")
+        nmap('<leader>tu', vtsls.commands.remove_unused_imports, '[T]ypescript Remove [U]nused Imports')
+        nmap('<leader>ts', vtsls.commands.sort_imports, '[T]ypescript [S]ort Imports')
+        nmap('<leader>tr', vtsls.commands.rename_file, '[T]ypescript [R]ename File')
+        nmap('<leader>tR', vtsls.commands.restart_tsserver, '[T]ypescript [R]estart Server')
     end
 })
 
@@ -41,7 +48,8 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
-        "folke/neodev.nvim"
+        "folke/neodev.nvim",
+        "yioneko/nvim-vtsls"
     },
 
     config = function()
@@ -61,12 +69,34 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
-                -- "tsserver"
+                "vtsls",
             },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities
+                    })
+                end,
+
+                ["vtsls"] = function (e)
+                    local lspconfig = require("lspconfig");
+                    lspconfig.vtsls.setup({
+                        settings = {
+                            vtsls = {
+                                autoUseWorkspaceTsdk = true,
+                                init_options = { hostInfo = "neovim" },
+                                experimental = {
+                                    completion = {
+                                        enableServerSideFuzzyMatch = true
+                                    }
+                                }
+                            },
+                            typescript = {
+                                format = {
+                                    enable = false
+                                },
+                            },
+                        },
                     })
                 end,
 
