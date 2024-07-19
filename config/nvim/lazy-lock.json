@@ -123,6 +123,10 @@
     "branch": "main",
     "commit": "6eb4120a1aadef07ac312f1c4bc6456712220007"
   },
+  "nvim-vtsls": {
+    "branch": "main",
+    "commit": "45c6dfea9f83a126e9bfc5dd63430562b3f8af16"
+  },
   "nvim-web-devicons": {
     "branch": "master",
     "commit": "14ac5887110b06b89a96881d534230dac3ed134d"
@@ -145,11 +149,7 @@
   },
   "telescope.nvim": {
     "branch": "0.1.x",
-    "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026"
-  },
-  "typescript-tools.nvim": {
-    "branch": "master",
-    "commit": "5da4d695d66f676eb6ea766b946e86f93baaafe7"
+    "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a"
   },
   "undotree": {
     "branch": "master",
