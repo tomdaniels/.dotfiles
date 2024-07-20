@@ -28,12 +28,7 @@ if status is-interactive
 
 	source ~/.config/fish/functions/git/commands.fish
 
-	# git branch workflow - ctrl b
-	bind \cb gb
 	bind -M insert \cb gb
-
-	# fzf tmux session jumper - ctrl f
-	bind \cf tmux-sessionizer
 	bind -M insert \cg lazygit
 	bind -M insert \cf tmux-sessionizer
 
