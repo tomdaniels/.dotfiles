@@ -40,6 +40,7 @@ if status is-interactive
 
 	# fzf tmux session jumper - ctrl f
 	bind \cf tmux-sessionizer
+	bind -M insert \cg lazygit
 	bind -M insert \cf tmux-sessionizer
 
 	$HOME/.dotfiles/tdtele/welcome.sh
