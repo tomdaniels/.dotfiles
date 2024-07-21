@@ -36,6 +36,7 @@ return {
   config = function()
     require('telescope').setup({
       defaults = {
+        prompt_prefix = "   ",
         initial_mode = "normal",
         path_display = { "truncate" },
         file_ignore_patterns = { "node_modules", ".git/" },
