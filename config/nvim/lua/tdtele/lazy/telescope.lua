@@ -38,7 +38,7 @@ return {
       defaults = {
         initial_mode = "normal",
         path_display = { "truncate" },
-        file_ignore_patterns = { "node_modules", ".git" },
+        file_ignore_patterns = { "node_modules", ".git/" },
         layout_config = {
           horizontal = {
             preview_width = 0.6,
