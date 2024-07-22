@@ -11,7 +11,6 @@ return {
   "folke/which-key.nvim",
   "numToStr/Comment.nvim",
   "tpope/vim-sleuth",
-  "neoclide/coc.nvim",
   "windwp/nvim-autopairs",
   "lukas-reineke/indent-blankline.nvim",
   "f-person/git-blame.nvim",
