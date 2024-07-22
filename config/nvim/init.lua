@@ -4,12 +4,12 @@ require("tdtele.keymaps")
 
 _G.tdtele = vim.api.nvim_create_augroup("tdtele", { clear = true })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd("TextYankPost", {
   group = tdtele,
-  pattern = '*',
+  pattern = "*",
   callback = function()
     vim.highlight.on_yank()
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
