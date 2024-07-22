@@ -1,9 +1,9 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.o.undofile = true
 
-vim.o.background = 'dark'
+vim.o.background = "dark"
 
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
@@ -27,7 +27,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- use system clipboard
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- decrease timeout & swp file generation intervals
 vim.o.updatetime = 250

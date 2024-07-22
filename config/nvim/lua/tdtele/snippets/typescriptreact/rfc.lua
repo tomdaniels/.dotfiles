@@ -9,7 +9,7 @@ return {
   s({
     trig = "rfc",
     name = "React Functional Component with Props",
-    desc = "Inserts a React Functional Component with a props type"
+    desc = "Inserts a React Functional Component with a props type",
   }, {
     t("type "),
     f(get_component_name),
@@ -24,6 +24,6 @@ return {
     f(get_component_name),
     t({ "Props) => {", "  return " }),
     i(0),
-    t({ "\t", "}" })
+    t({ "\t", "}" }),
   }),
 }
