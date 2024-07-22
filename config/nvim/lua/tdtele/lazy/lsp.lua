@@ -1,5 +1,3 @@
-local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
-
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -181,6 +179,8 @@ return {
         end, { desc = "Format current buffer with LSP" })
 
         local vtsls = require("vtsls")
+        nmap("<leader>tf", vtsls.commands.fix_all, "[T]ypescript: Auto-[F]ix all")
+        nmap("<leader>ti", vtsls.commands.add_missing_imports, "[T]ypescript: Add missing [I]mports")
         nmap("<leader>tu", vtsls.commands.remove_unused_imports, "[T]ypescript Remove [U]nused Imports")
         nmap("<leader>ts", vtsls.commands.sort_imports, "[T]ypescript [S]ort Imports")
         nmap("<leader>tr", vtsls.commands.rename_file, "[T]ypescript [R]ename File")
