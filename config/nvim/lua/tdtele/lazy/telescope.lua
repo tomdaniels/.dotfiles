@@ -35,9 +35,8 @@ return {
   config = function()
     require('telescope').setup({
       defaults = {
-        initial_mode = "normal",
-        path_display = { "truncate" },
-        file_ignore_patterns = { "node_modules", ".git/" },
+        prompt_prefix = "   ",
+        selection_caret = "❯ ",
         layout_config = {
           horizontal = {
             preview_width = 0.6,
@@ -46,10 +45,16 @@ return {
           width = 0.90,
           preview_cutoff = 0,
         },
+        prompt_title = false,
+        results_title = false,
+        path_display = { "truncate" },
+        file_ignore_patterns = { "node_modules", ".git/" },
       },
       extensions = {
         ["ui-select"] = {
-          require("telescope.themes").get_dropdown(),
+          require("telescope.themes").get_dropdown({
+            winblend = 10
+          }),
         }
       },
     })
@@ -58,5 +63,30 @@ return {
     pcall(require('telescope').load_extension, 'fzf')
 
     require("telescope").load_extension("ui-select")
+
+    vim.api.nvim_create_autocmd({"ColorScheme"}, {
+      group = tdtele,
+      pattern = "*",
+      callback = function()
+        local config = vim.fn['gruvbox_material#get_configuration']()
+        local colors = vim.fn['gruvbox_material#get_palette'](config.background, config.foreground, config.colors_override)
+
+        local TelescopeColor = {
+          TelescopeBorder = { fg = colors.bg1[1]},
+
+          TelescopePromptTitle  = { fg = colors.bg5[1] },
+          TelescopePromptBorder = { fg = colors.bg0[1] },
+          TelescopePromptPrefix = { fg = colors.orange[1] },
+
+          TelescopeSelection      = { bold = true },
+          TelescopeSelectionCaret = { fg = colors.orange[1] },
+          TelescopeMatching       = { fg = colors.green[1], bold = true },
+        }
+
+        for hl, col in pairs(TelescopeColor) do
+          vim.api.nvim_set_hl(0, hl, col)
+        end
+      end
+    })
   end,
 }
