@@ -1,39 +1,4 @@
 local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = lsp_group,
-  callback = function(e)
-    local nmap = function(keys, func, desc)
-      if desc then
-        desc = "LSP | " .. desc
-      end
-
-      vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
-    end
-
-    nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-    nmap("gD", vim.lsp.buf.type_definition, "Type [D]efinition")
-    nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-
-    nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-    nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-    nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-    nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
-    nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
-    nmap("<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message")
-    nmap("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
-
-    vim.api.nvim_buf_create_user_command(e.buf, "Format", function(_)
-      vim.lsp.buf.format()
-    end, { desc = "Format current buffer with LSP" })
-
-    local vtsls = require("vtsls")
-    nmap("<leader>tu", vtsls.commands.remove_unused_imports, "[T]ypescript Remove [U]nused Imports")
-    nmap("<leader>ts", vtsls.commands.sort_imports, "[T]ypescript [S]ort Imports")
-    nmap("<leader>tr", vtsls.commands.rename_file, "[T]ypescript [R]ename File")
-    nmap("<leader>tR", vtsls.commands.restart_tsserver, "[T]ypescript [R]estart Server")
-  end,
-})
 
 return {
   "neovim/nvim-lspconfig",
@@ -53,7 +18,7 @@ return {
   },
 
   config = function()
-    local cmp = require("cmp")
+    local lspconfig = require("lspconfig")
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities =
       vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
@@ -75,8 +40,7 @@ return {
           })
         end,
 
-        ["vtsls"] = function(e)
-          local lspconfig = require("lspconfig")
+        ["vtsls"] = function()
           lspconfig.vtsls.setup({
             settings = {
               vtsls = {
@@ -98,7 +62,7 @@ return {
         end,
 
         ["gopls"] = function()
-          vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+          vim.api.nvim_create_autocmd("BufWritePre", {
             group = lsp_group,
             pattern = "*.go",
             callback = function()
@@ -106,7 +70,6 @@ return {
             end,
           })
 
-          local lspconfig = require("lspconfig")
           lspconfig.gopls.setup({
             capabilities = capabilities,
             settings = {
@@ -120,7 +83,6 @@ return {
         end,
 
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup({
             capabilities = capabilities,
             settings = {
@@ -152,6 +114,7 @@ return {
       },
     })
 
+    local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     ---@diagnostic disable: missing-fields
@@ -185,6 +148,44 @@ return {
         header = "",
         prefix = "",
       },
+    })
+  end,
+
+  init = function()
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = lsp_group,
+      callback = function(e)
+        local nmap = function(keys, func, desc)
+          if desc then
+            desc = "LSP | " .. desc
+          end
+
+          vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
+        end
+
+        nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+        nmap("gD", vim.lsp.buf.type_definition, "Type [D]efinition")
+        nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
+        nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+        nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+        nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+        nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
+        nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
+        nmap("<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message")
+        nmap("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
+
+        vim.api.nvim_buf_create_user_command(e.buf, "Format", function(_)
+          vim.lsp.buf.format()
+        end, { desc = "Format current buffer with LSP" })
+
+        local vtsls = require("vtsls")
+        nmap("<leader>tu", vtsls.commands.remove_unused_imports, "[T]ypescript Remove [U]nused Imports")
+        nmap("<leader>ts", vtsls.commands.sort_imports, "[T]ypescript [S]ort Imports")
+        nmap("<leader>tr", vtsls.commands.rename_file, "[T]ypescript [R]ename File")
+        nmap("<leader>tR", vtsls.commands.restart_tsserver, "[T]ypescript [R]estart Server")
+      end,
     })
   end,
 }
