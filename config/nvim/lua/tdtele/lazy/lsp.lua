@@ -1,9 +1,10 @@
+local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = _G.tdtele,
+  group = lsp_group,
   callback = function(e)
     local nmap = function(keys, func, desc)
       if desc then
-        desc = "LSP: " .. desc
+        desc = "LSP | " .. desc
       end
 
       vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
@@ -98,7 +99,7 @@ return {
 
         ["gopls"] = function()
           vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-            group = _G.tdtele,
+            group = lsp_group,
             pattern = "*.go",
             callback = function()
               vim.lsp.buf.format({ async = false })
