@@ -14,63 +14,35 @@ return {
     },
   },
 
+  opts = {
+    defaults = {
+      prompt_prefix = "   ",
+      selection_caret = "❯ ",
+      layout_config = {
+        horizontal = {
+          preview_width = 0.6,
+          results_width = 0.4,
+        },
+        width = 0.90,
+        preview_cutoff = 0,
+      },
+      prompt_title = false,
+      results_title = false,
+      path_display = { "truncate" },
+      file_ignore_patterns = { "node_modules", ".git/" },
+    },
+    extensions = {
+      ["ui-select"] = {
+        require("telescope.themes").get_dropdown({
+          winblend = 10,
+        }),
+      },
+    },
+  },
+
   init = function()
-    vim.keymap.set("n", "<leader>lf", require("telescope.builtin").find_files, { desc = "[L]ook for [F]iles" })
-    vim.keymap.set("n", "<leader>lF", require("telescope.builtin").live_grep, { desc = "[L]ook [F]or text" })
-    vim.keymap.set(
-      "n",
-      "<leader>sw",
-      require("telescope.builtin").grep_string,
-      { desc = "[S]earch [W]ord under cursor" }
-    )
-    vim.keymap.set("n", "<leader>sg", require("telescope.builtin").git_files, { desc = "[S]earch [G]it files" })
-    vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-    vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-
-    vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-    vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
-    vim.keymap.set("n", "<leader>/", function()
-      require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
-        previewer = false,
-      }))
-    end, { desc = "[/] Fuzzily search in current buffer" })
-  end,
-
-  config = function()
-    require("telescope").setup({
-      defaults = {
-        prompt_prefix = "   ",
-        selection_caret = "❯ ",
-        layout_config = {
-          horizontal = {
-            preview_width = 0.6,
-            results_width = 0.4,
-          },
-          width = 0.90,
-          preview_cutoff = 0,
-        },
-        prompt_title = false,
-        results_title = false,
-        path_display = { "truncate" },
-        file_ignore_patterns = { "node_modules", ".git/" },
-      },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({
-            winblend = 10,
-          }),
-        },
-      },
-    })
-
-    -- Enable telescope fzf native, if installed
-    pcall(require("telescope").load_extension, "fzf")
-
-    require("telescope").load_extension("ui-select")
-
     vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-      group = tdtele,
+      group = vim.api.nvim_create_augroup("td_telescope", { clear = true }),
       pattern = "*",
       callback = function()
         local config = vim.fn["gruvbox_material#get_configuration"]()
@@ -79,11 +51,9 @@ return {
 
         local TelescopeColor = {
           TelescopeBorder = { fg = colors.bg1[1] },
-
           TelescopePromptTitle = { fg = colors.bg5[1] },
           TelescopePromptBorder = { fg = colors.bg0[1] },
           TelescopePromptPrefix = { fg = colors.orange[1] },
-
           TelescopeSelection = { bold = true },
           TelescopeSelectionCaret = { fg = colors.orange[1] },
           TelescopeMatching = { fg = colors.green[1], bold = true },
@@ -94,5 +64,34 @@ return {
         end
       end,
     })
+  end,
+
+  config = function(_, opts)
+    require("telescope").setup(opts)
+    pcall(require("telescope").load_extension, "fzf")
+
+    require("telescope").load_extension("ui-select")
+
+    local nmap = function(lhs, rhs, desc)
+      vim.keymap.set("n", lhs, rhs, { desc = "Telescope | " .. desc })
+    end
+
+    nmap("<leader>lf", require("telescope.builtin").find_files, "[L]ook [f]or files")
+    nmap("<leader>lF", require("telescope.builtin").live_grep, "[L]ook [F]or text")
+    nmap("<leader>lw", require("telescope.builtin").grep_string, "[L]ook for [W]ord under cursor")
+
+    nmap("<leader>sg", require("telescope.builtin").git_files, "[S]earch [G]it files")
+    nmap("<leader>sd", require("telescope.builtin").diagnostics, "[S]earch [D]iagnostics")
+    nmap("<leader>sh", require("telescope.builtin").help_tags, "[S]earch [H]elp")
+
+    nmap("<leader><space>", require("telescope.builtin").buffers, "[ ] existing buffers")
+    nmap("<leader>?", require("telescope.builtin").oldfiles, "[?] Find recently opened files")
+
+    nmap("<leader>/", function()
+      require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+      }))
+    end, "[/] Fuzzily search in current buffer")
   end,
 }
