@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = tdtele,
   pattern = "*",
   command = [[%s/\s\+$//e]],
