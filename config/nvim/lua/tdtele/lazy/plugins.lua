@@ -15,4 +15,5 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   "f-person/git-blame.nvim",
   "tpope/vim-surround",
+  "Asheq/close-buffers.vim",
 }
