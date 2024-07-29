@@ -163,6 +163,11 @@ return {
           vim.keymap.set("n", keys, func, { buffer = e.buf, desc = desc })
         end
 
+        local client = vim.lsp.get_client_by_id(e.data.client_id)
+        if client then
+          client.server_capabilities.semanticTokensProvider = nil
+        end
+
         nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
         nmap("gD", vim.lsp.buf.type_definition, "Type [D]efinition")
         nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
