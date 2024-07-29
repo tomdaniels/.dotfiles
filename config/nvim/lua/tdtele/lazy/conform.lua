@@ -12,6 +12,7 @@ return {
         rust = { "rustfmt", lsp_format = "fallback" },
         typescript = ts_formatters,
         typescriptreact = ts_formatters,
+        json = ts_formatters,
       },
 
       format_on_save = {
