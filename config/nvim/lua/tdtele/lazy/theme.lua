@@ -14,6 +14,9 @@ return {
         vim.api.nvim_set_hl(0, "@character.special.scss", { link = "Orange" })
         vim.api.nvim_set_hl(0, "@property.scss", { link = "Blue" })
         vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "Comment" })
+
+        -- hack to lower the priority so operators arent treated like punctuation /shrug
+        vim.api.nvim_set_hl(0, "@punctuation.delimiter.tsx", { link = "Delimiter" })
       end,
     })
   end,
