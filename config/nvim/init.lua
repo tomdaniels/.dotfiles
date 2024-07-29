@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = tdtele,
-  pattern = { "*.ts", "*.tsx" },
+  pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
   callback = function()
     local biome = require("tdtele.biome")
 
