@@ -3,16 +3,18 @@ return {
   event = { "BufReadPre", "BufNewFile" },
 
   config = function()
-    local ts_formatters = { "biome-check", "prettier", "prettierd", "biome", stop_after_first = true }
+    local web_formatters = { "biome-check", "prettier", "prettierd", "biome", stop_after_first = true }
 
     require("conform").setup({
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
         rust = { "rustfmt", lsp_format = "fallback" },
-        typescript = ts_formatters,
-        typescriptreact = ts_formatters,
-        json = ts_formatters,
+        typescript = web_formatters,
+        typescriptreact = web_formatters,
+        javascript = web_formatters,
+        javascriptreact = web_formatters,
+        json = web_formatters,
       },
 
       format_on_save = {
