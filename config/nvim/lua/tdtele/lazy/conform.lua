@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
 
   config = function()
-    local ts_formatters = { "prettier", "prettierd", "biome", stop_after_first = true }
+    local ts_formatters = { "biome-check", "prettier", "prettierd", "biome", stop_after_first = true }
 
     require("conform").setup({
       formatters_by_ft = {
