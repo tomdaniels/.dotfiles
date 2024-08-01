@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<leader>d", ":Bdelete other<CR>", { desc = "Close Other Buffers" })
-vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Current Buffer" })
+vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Current Buffer (safe)" })
+vim.keymap.set("n", "<leader>X", ":bdelete!<CR>", { desc = "Close Current Buffer (unsafe)" })
 
 vim.keymap.set("n", "<tab>", ":bn<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<S-tab>", ":bp<CR>", { desc = "Previous Buffer" })
