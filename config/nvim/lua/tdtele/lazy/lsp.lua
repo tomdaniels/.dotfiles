@@ -1,3 +1,5 @@
+local lsp_group = vim.api.nvim_create_augroup("td_lsp", { clear = true })
+
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
