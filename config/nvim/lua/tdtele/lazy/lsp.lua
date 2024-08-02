@@ -32,6 +32,8 @@ return {
         "rust_analyzer",
         "gopls",
         "vtsls",
+        "biome",
+        "cssls",
       },
       handlers = {
         function(server_name)
