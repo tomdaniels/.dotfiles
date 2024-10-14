@@ -8,6 +8,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 ./build-neovim.sh
 ./install-nodejs.sh
+./install-lazygit.sh
 ./symlink-dotfiles.sh
 
 echo (which fish) | sudo tree -a /etc/shells
