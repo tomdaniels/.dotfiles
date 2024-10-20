@@ -32,6 +32,7 @@ return {
         "rust_analyzer",
         "gopls",
         "vtsls",
+        "clangd"
       },
       handlers = {
         function(server_name)
