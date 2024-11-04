@@ -7,7 +7,7 @@ A symlink farm which serves as my home directory, managed by [GNU Stow](https://
 - [alacritty](https://alacritty.org/config-alacritty.html)
 - [tmux](https://github.com/tmux/tmux/wiki/Getting-Started#configuring-tmux)
 - [fish](https://fishshell.com/docs/current/commands.html)
-- [nvim](https://github.com/tomdaniels/.dotfiles/blob/master/config/nvim/lua/plugins.lua) plugin name is the repo url.
+- [nvim](https://github.com/tomdaniels/.dotfiles/blob/master/config/nvim/lua/tdtele/lazy) plugin name is the repo url.
 
 ```
 ~
