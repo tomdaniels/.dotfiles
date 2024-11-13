@@ -192,6 +192,7 @@ return {
         nmap("<leader>ts", vtsls.commands.sort_imports, "[T]ypescript [S]ort Imports")
         nmap("<leader>tr", vtsls.commands.rename_file, "[T]ypescript [R]ename File")
         nmap("<leader>tR", vtsls.commands.restart_tsserver, "[T]ypescript [R]estart Server")
+        nmap("<leader>tF", vtsls.commands.file_references, "[T]ypescript [Find] [F]ile References")
       end,
     })
   end,
