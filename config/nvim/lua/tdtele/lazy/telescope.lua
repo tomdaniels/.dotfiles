@@ -1,3 +1,30 @@
+local function filenameFirst(_, path)
+  local tail = require("telescope.utils").path_tail(path)
+
+  -- Get the parent path (relative to the current directory)
+  local parent = vim.fn.fnamemodify(path, ":.:h")
+  if parent == "." then return tail end
+
+  -- Split the parent path into components
+  local components = {}
+  for part in string.gmatch(parent, "[^/]+") do
+    table.insert(components, part)
+  end
+
+  -- Truncate all but the last directory, except those starting with a capital letter
+  for i = 1, #components - 1 do
+    if not string.match(components[i], "^[A-Z]") then
+      components[i] = string.sub(components[i], 1, 1) -- Truncate to the first character
+    end
+  end
+
+  -- Reconstruct the parent path
+  local truncated_parent = table.concat(components, "/")
+
+  -- Format and return the result
+  return string.format("%s\t\t%s", tail, truncated_parent)
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
@@ -14,7 +41,18 @@ return {
     },
   },
 
+
   opts = {
+    pickers = {
+      find_files = {
+        path_display = filenameFirst,
+      },
+      lsp_references = {
+        layout_strategy = "vertical",
+        fname_width = 60,
+        path_display = filenameFirst,
+      }
+    },
     defaults = {
       prompt_prefix = "   ",
       selection_caret = "❯ ",
@@ -47,7 +85,7 @@ return {
       callback = function()
         local config = vim.fn["gruvbox_material#get_configuration"]()
         local colors =
-          vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+            vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
 
         local TelescopeColor = {
           TelescopeBorder = { fg = colors.bg1[1] },
