@@ -1,3 +1,7 @@
+vim.keymap.set("i", "<C-s>", function()
+  vim.lsp.buf.signature_help()
+end, { noremap = true, silent = true, desc = "Get signature help" })
+
 vim.keymap.set("n", "<leader>d", ":Bdelete other<CR>", { desc = "Close Other Buffers" })
 vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Current Buffer (safe)" })
 vim.keymap.set("n", "<leader>X", ":bdelete!<CR>", { desc = "Close Current Buffer (unsafe)" })
