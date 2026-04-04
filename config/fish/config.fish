@@ -16,6 +16,9 @@ if status is-interactive
 	# bind \e 'tmux copy-mode'
 	alias gs="git status -s"
 
+
+	set -gx PATH /usr/local/bin $PATH
+
 	# homebrew
 	set -gx PATH /opt/homebrew/bin $PATH
 	eval (brew shellenv)
