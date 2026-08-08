@@ -9,7 +9,7 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           -- attempting to stop lualine painting on telsecope popups
-          statusline = { "TelescopePrompt", "TelescopeResults" },
+          statusline = { "TelescopePrompt", "TelescopeResults", "minifiles", "minifiles-help" },
           winbar = {},
         },
         ignore_focus = {},
