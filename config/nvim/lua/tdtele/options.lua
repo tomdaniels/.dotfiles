@@ -9,7 +9,6 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.scrolloff = 15
 vim.o.expandtab = true
-vim.o.smartindent = true
 
 vim.o.number = true
 vim.o.relativenumber = true
