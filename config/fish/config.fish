@@ -35,7 +35,7 @@ if status is-interactive
 	$HOME/.dotfiles/tdtele/welcome.sh
 end
 
-set --universal nvm_default_version v22.3.0
+set --universal nvm_default_version v22.12.0
 
 fish_add_path -g --path /usr/local/go/bin
 
@@ -48,3 +48,4 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+export PATH="$HOME/.local/bin:$PATH"
