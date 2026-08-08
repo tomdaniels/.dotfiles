@@ -1,3 +1,5 @@
+local closure = require("tdtele.utils").closure
+
 local M = {}
 
 local function rename_file(client)
@@ -70,6 +72,10 @@ M.on_attach = function(args)
   local bufnr = args.buf
   local client = vim.lsp.get_client_by_id(args.data.client_id)
 
+  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+    vim.lsp.buf.format()
+  end, { desc = "Format current buffer with LSP" })
+
   local nmap = function(keys, func, desc)
     if desc then
       desc = "LSP | " .. desc
@@ -89,34 +95,16 @@ M.on_attach = function(args)
   nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
   nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-  nmap("[d", function()
-    vim.diagnostic.jump({ count = -1 })
-  end, "Go to previous diagnostic message")
-  nmap("]d", function()
-    vim.diagnostic.jump({ count = 1 })
-  end, "Go to next diagnostic message")
+  nmap("[d", closure(vim.diagnostic.jump, { count = -1 }), "Go to previous diagnostic message")
+  nmap("]d", closure(vim.diagnostic.jump, { count = 1 }, "Go to next diagnostic message"))
   nmap("<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message")
   nmap("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
 
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
-
-  nmap("<leader>tf", function()
-    code_action("source.fixAll")
-  end, "[T]ypescript: Auto-[F]ix all")
-  nmap("<leader>ti", function()
-    code_action("source.addMissingImports")
-  end, "[T]ypescript: Add missing [I]mports")
-  nmap("<leader>tu", function()
-    code_action("source.removeUnusedImports")
-  end, "[T]ypescript: Remove [U]nused Imports")
-  nmap("<leader>ts", function()
-    code_action("source.organiseImports")
-  end, "[T]ypescript: [S]ort/organise Imports")
-  nmap("<leader>tr", function()
-    rename_file(client)
-  end, "[T]ypescript: [R]ename File")
+  nmap("<leader>tf", closure(code_action, "source.fixAll"), "[T]ypescript: Auto-[F]ix all")
+  nmap("<leader>ti", closure(code_action, "source.addMissingImports"), "[T]ypescript: Add missing [I]mports")
+  nmap("<leader>tu", closure(code_action, "source.removeUnusedImports"), "[T]ypescript: Remove [U]nused Imports")
+  nmap("<leader>ts", closure(code_action, "source.organiseImports"), "[T]ypescript: [S]ort/organise Imports")
+  nmap("<leader>tr", closure(rename_file, client), "[T]ypescript: [R]ename File")
   nmap("<leader>tR", "<cmd>LspRestart<CR>", "[T]ypescript: [R]estart Server")
 end
 
