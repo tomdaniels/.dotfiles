@@ -51,6 +51,7 @@ return {
           layout_strategy = "vertical",
           fname_width = 60,
           path_display = filenameFirst,
+          initial_mode = "normal",
         },
       },
       defaults = {
