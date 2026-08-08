@@ -7,6 +7,7 @@ sudo apt install -y < ./dependencies.sh
 curl -sS https://starship.rs/install.sh | sh
 
 ./install-neovim.sh
+./install-tree-sitter-cli.sh
 ./install-nodejs.sh
 ./install-lazygit.sh
 ./symlink-dotfiles.sh
