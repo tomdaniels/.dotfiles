@@ -23,7 +23,7 @@ return {
 
       vim.cmd("write")
 
-      client.request("workspace/executeCommand", {
+      client:request("workspace/executeCommand", {
         command = "_typescript.applyRenameFile",
         arguments = {
           { sourceUri = old_uri, targetUri = new_uri },
@@ -98,8 +98,12 @@ return {
         nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
         nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-        nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
-        nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
+        nmap("[d", function()
+          vim.diagnostic.jump({ count = -1 })
+        end, "Go to previous diagnostic message")
+        nmap("]d", function()
+          vim.diagnostic.jump({ count = 1 })
+        end, "Go to next diagnostic message")
         nmap("<leader>e", vim.diagnostic.open_float, "Open floating diagnostic message")
         nmap("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
 
