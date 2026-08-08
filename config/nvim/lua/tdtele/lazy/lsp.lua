@@ -107,11 +107,21 @@ return {
           vim.lsp.buf.format()
         end, { desc = "Format current buffer with LSP" })
 
-        nmap("<leader>tf", function() code_action("source.fixAll") end, "[T]ypescript: Auto-[F]ix all")
-        nmap("<leader>ti", function() code_action("source.addMissingImports") end, "[T]ypescript: Add missing [I]mports")
-        nmap("<leader>tu", function() code_action("source.removeUnusedImports") end, "[T]ypescript: Remove [U]nused Imports")
-        nmap("<leader>ts", function() code_action("source.organiseImports") end, "[T]ypescript: [S]ort/organise Imports")
-        nmap("<leader>tr", function() rename_file(client) end, "[T]ypescript: [R]ename File")
+        nmap("<leader>tf", function()
+          code_action("source.fixAll")
+        end, "[T]ypescript: Auto-[F]ix all")
+        nmap("<leader>ti", function()
+          code_action("source.addMissingImports")
+        end, "[T]ypescript: Add missing [I]mports")
+        nmap("<leader>tu", function()
+          code_action("source.removeUnusedImports")
+        end, "[T]ypescript: Remove [U]nused Imports")
+        nmap("<leader>ts", function()
+          code_action("source.organiseImports")
+        end, "[T]ypescript: [S]ort/organise Imports")
+        nmap("<leader>tr", function()
+          rename_file(client)
+        end, "[T]ypescript: [R]ename File")
         nmap("<leader>tR", "<cmd>LspRestart<CR>", "[T]ypescript: [R]estart Server")
       end,
     })
@@ -140,11 +150,20 @@ return {
       lua_ls = {
         settings = {
           Lua = {
+            runtime = { version = "Lua 5.1" },
             completion = { callSnippet = "Replace" },
             diagnostics = {
               globals = {
                 "vim",
-                "s", "sn", "isn", "t", "i", "f", "c", "d", "r",
+                "s",
+                "sn",
+                "isn",
+                "t",
+                "i",
+                "f",
+                "c",
+                "d",
+                "r",
               },
             },
           },
@@ -156,5 +175,16 @@ return {
       server.capabilities = capabilities
       vim.lsp.config(server_name, server)
     end
+
+    vim.diagnostic.config({
+      float = {
+        focusable = true,
+        style = "minimal",
+        border = "rounded",
+        source = true,
+        header = "",
+        prefix = "",
+      },
+    })
   end,
 }
