@@ -8,6 +8,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 ./install-neovim.sh
 ./install-tree-sitter-cli.sh
+./install-stylua.sh
 ./install-nodejs.sh
 ./install-lazygit.sh
 ./symlink-dotfiles.sh
