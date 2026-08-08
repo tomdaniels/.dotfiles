@@ -13,6 +13,8 @@ return {
       "javascript",
       "tsx",
       "typescript",
+      "css",
+      "scss",
       "vimdoc",
       "vim",
       "jsdoc",
