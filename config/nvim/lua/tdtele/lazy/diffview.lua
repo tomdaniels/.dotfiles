@@ -3,7 +3,7 @@ return {
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
   keys = {
     {
-      "<leader>gd",
+      "<leader>dv",
       function()
         if require("diffview.lib").get_current_view() then
           vim.cmd("DiffviewClose")

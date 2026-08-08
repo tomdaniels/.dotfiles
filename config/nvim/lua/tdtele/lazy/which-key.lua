@@ -7,7 +7,7 @@ return {
       { "<leader>g", group = "Git" },
       { "<leader>l", group = "Find" },
       { "<leader>s", group = "Search" },
-      { "<leader>d", group = "Docs" },
+      { "<leader>d", group = "Diff / Docs" },
     },
   },
   keys = {
