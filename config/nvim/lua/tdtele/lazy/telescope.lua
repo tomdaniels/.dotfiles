@@ -130,7 +130,7 @@ return {
     end
 
     -- remaps native vim jumping o.O
-    nmap("`", require("telescope.builtin").find_files, "[L]ook [f]or files")
+    nmap("-", require("telescope.builtin").find_files, "[L]ook [f]or files")
     nmap("<leader>lf", require("telescope.builtin").live_grep, "[L]ook [f]or text")
     nmap("<leader>lw", require("telescope.builtin").grep_string, "[L]ook for [W]ord under cursor")
 
