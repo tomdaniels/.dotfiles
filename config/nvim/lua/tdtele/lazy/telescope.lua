@@ -3,7 +3,9 @@ local function filenameFirst(_, path)
 
   -- Get the parent path (relative to the current directory)
   local parent = vim.fn.fnamemodify(path, ":.:h")
-  if parent == "." then return tail end
+  if parent == "." then
+    return tail
+  end
 
   -- Split the parent path into components
   local components = {}
@@ -49,7 +51,7 @@ return {
           layout_strategy = "vertical",
           fname_width = 60,
           path_display = filenameFirst,
-        }
+        },
       },
       defaults = {
         prompt_prefix = "   ",
@@ -86,7 +88,7 @@ return {
       callback = function()
         local config = vim.fn["gruvbox_material#get_configuration"]()
         local colors =
-            vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
+          vim.fn["gruvbox_material#get_palette"](config.background, config.foreground, config.colors_override)
 
         local TelescopeColor = {
           TelescopeBorder = { fg = colors.bg1[1] },
@@ -126,8 +128,9 @@ return {
       vim.keymap.set("n", lhs, rhs, { desc = "Telescope | " .. desc })
     end
 
-    nmap("<leader>lf", require("telescope.builtin").find_files, "[L]ook [f]or files")
-    nmap("<leader>lF", require("telescope.builtin").live_grep, "[L]ook [F]or text")
+    -- remaps native vim jumping o.O
+    nmap("`", require("telescope.builtin").find_files, "[L]ook [f]or files")
+    nmap("<leader>lf", require("telescope.builtin").live_grep, "[L]ook [f]or text")
     nmap("<leader>lw", require("telescope.builtin").grep_string, "[L]ook for [W]ord under cursor")
 
     nmap("<leader>sg", require("telescope.builtin").git_files, "[S]earch [G]it files")
