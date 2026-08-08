@@ -30,4 +30,5 @@ vim.o.clipboard = "unnamedplus"
 
 -- decrease timeout & swp file generation intervals
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 250 -- space
+vim.o.ttimeoutlen = 0 -- esc
