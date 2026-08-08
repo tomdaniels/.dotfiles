@@ -1,7 +1,11 @@
 return {
   "nvim-mini/mini.files",
   version = false,
-  opts = {},
+  opts = {
+    mappings = {
+      close = "<Esc>",
+    },
+  },
   keys = {
     {
       "-",
