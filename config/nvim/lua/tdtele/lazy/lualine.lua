@@ -8,7 +8,8 @@ return {
         component_separators = { left = "", right = "|" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-          statusline = {},
+          -- attempting to stop lualine painting on telsecope popups
+          statusline = { "TelescopePrompt", "TelescopeResults" },
           winbar = {},
         },
         ignore_focus = {},
