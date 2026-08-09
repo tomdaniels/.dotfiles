@@ -9,7 +9,7 @@ M.setup = function()
   local builtin = require("telescope.builtin")
 
   -- remaps native vim jumping o.O
-  nmap("-", builtin.find_files, "[L]ook [f]or files")
+  nmap("`", builtin.find_files, "Find Files")
 
   nmap("<leader>lf", builtin.live_grep, "[L]ook [f]or text")
   nmap("<leader>lw", builtin.grep_string, "[L]ook for [W]ord under cursor")
