@@ -5,12 +5,11 @@ return {
       options = {
         icons_enabled = false,
         theme = "gruvbox-material",
-        -- component_separators = '|',
-        -- section_separators = '',
-        component_separators = { left = "", right = "|" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "|" },
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
-          statusline = {},
+          -- attempting to stop lualine painting on telsecope popups
+          statusline = { "TelescopePrompt", "TelescopeResults", "minifiles", "minifiles-help" },
           winbar = {},
         },
         ignore_focus = {},
@@ -30,14 +29,6 @@ return {
         lualine_y = { "filename" },
         lualine_z = { "location" },
       },
-      -- inactive_sections = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = {'filename'},
-      --   lualine_x = {'encoding', 'fileformat', 'filetype'},
-      --   lualine_y = {'progress'},
-      --   lualine_z = {'location'}
-      -- },
       tabline = {},
       winbar = {},
       inactive_winbar = {},

@@ -1,3 +1,5 @@
+local closure = require("tdtele.utils").closure
+
 return {
   "lewis6991/gitsigns.nvim",
   init = function()
@@ -5,34 +7,23 @@ return {
   end,
   config = function()
     require("gitsigns").setup({
-      -- See `:help gitsigns.txt`
-      signs = {
-
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-      },
+      current_line_blame = true,
       on_attach = function(bufnr)
-        vim.keymap.set(
-          "n",
-          "<leader>gp",
-          require("gitsigns").prev_hunk,
-          { buffer = bufnr, desc = "[G]o to [P]revious Hunk" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>gn",
-          require("gitsigns").next_hunk,
-          { buffer = bufnr, desc = "[G]o to [N]ext Hunk" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>ph",
-          require("gitsigns").preview_hunk,
-          { buffer = bufnr, desc = "[P]review [H]unk" }
-        )
+        local gitsigns = require("gitsigns")
+
+        local nmap = function(keys, func, desc)
+          vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+        end
+
+        nmap("<leader>gp", closure(gitsigns.nav_hunk, "prev"), "[G]o to [P]revious Hunk")
+        nmap("<leader>gn", closure(gitsigns.nav_hunk, "next"), "[G]o to [N]ext Hunk")
+        nmap("<leader>gm", closure(gitsigns.blame_line, { full = true }), "[G]it [M]essage (full commit)")
+
+        nmap("<leader>ph", gitsigns.preview_hunk, "[P]review [H]unk")
+        nmap("<leader>gb", gitsigns.blame, "[G]it [B]lame panel")
+        nmap("<leader>gs", gitsigns.stage_hunk, "[G]it [S]tage Hunk")
+        nmap("<leader>gx", gitsigns.reset_hunk, "[G]it Discard Hunk (reset)")
+        nmap("<leader>gd", gitsigns.diffthis, "[G]it [D]iffthis (vs index)")
       end,
     })
   end,

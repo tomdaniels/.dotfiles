@@ -1,10 +1,22 @@
 return {
   "folke/which-key.nvim",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-  config = function()
-    require("which-key").setup()
-  end,
+  event = "VeryLazy",
+  opts = {
+    spec = {
+      { "<leader>t", group = "TypeScript" },
+      { "<leader>g", group = "Git" },
+      { "<leader>l", group = "Find" },
+      { "<leader>s", group = "Search" },
+      { "<leader>d", group = "Diff / Docs" },
+    },
+  },
+  keys = {
+    {
+      "<leader>k",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
 }
